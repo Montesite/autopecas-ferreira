@@ -99,7 +99,7 @@
           {
             "@type": "Question",
             "name": "As peças são originais e de procedência?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Sim. Trabalhamos só com marcas que confiamos, como Wega, Tecfil, Nakata, Mann Filter, Continental, Dayco, Shell e Lubrax." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. Trabalhamos só com marcas que confiamos, como Wega, Tecfil, Nakata, Mann Filter, Continental, Dayco, Shell, Lubrax, Axios, Vox, Selenia, Maxon e Motul." }
           },
           {
             "@type": "Question",
@@ -488,6 +488,18 @@
     }
     .sobre-badge strong { display: block; font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1; }
     .sobre-badge span { font-size: 0.78rem; }
+
+    .sobre-media { position: relative; }
+    .sobre-inset {
+      position: absolute; right: -36px; bottom: -36px; z-index: 2;
+      width: 38%; margin: 0; border-radius: 16px; overflow: hidden;
+      border: 6px solid var(--white); background: var(--gray-100);
+      box-shadow: 0 18px 40px rgba(23,19,19,0.28);
+    }
+    .sobre-inset img { width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover; object-position: 30% 50%; display: block; }
+    @media (max-width: 768px) {
+      .sobre-inset { right: 12px; bottom: -28px; width: 42%; border-width: 4px; }
+    }
 
     .sobre-text p { margin-bottom: 16px; }
     .sobre-text .section-subtitle { max-width: none; margin-bottom: 16px; }
@@ -1143,6 +1155,7 @@
     <svg class="sobre-gear" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
     <div class="container">
       <div class="sobre-grid">
+        <div class="sobre-media">
         <div class="sobre-img-wrap reveal-left">
           <img src="assets/img/fachada-loja.jpg" alt="Fachada da loja Auto Peças e Troca de Óleo Ferreira" loading="lazy">
           <div class="img-curtain" aria-hidden="true"></div>
@@ -1152,6 +1165,10 @@
               <span>Peças em estoque</span>
             </div>
           </div>
+        </div>
+        <figure class="sobre-inset reveal-left">
+          <img src="assets/img/sala-espera-mural.jpg" alt="Sala de espera climatizada com TV e mural da Auto Peças e Troca de Óleo Ferreira" loading="lazy" width="720" height="941">
+        </figure>
         </div>
         <div class="sobre-text reveal-right">
           <span class="section-tag">Nossa história</span>
@@ -1380,6 +1397,11 @@
         <span class="marca-item">Dayco</span>
         <span class="marca-item">Shell</span>
         <span class="marca-item">Lubrax</span>
+        <span class="marca-item">Axios</span>
+        <span class="marca-item">Vox</span>
+        <span class="marca-item">Selenia</span>
+        <span class="marca-item">Maxon</span>
+        <span class="marca-item">Motul</span>
       </div>
     </div>
   </section>
@@ -1403,7 +1425,7 @@
         </details>
         <details class="faq-item">
           <summary>As peças são originais e de procedência?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
-          <p class="faq-answer">Sim. Trabalhamos só com marcas que confiamos, como Wega, Tecfil, Nakata, Mann Filter, Continental, Dayco, Shell e Lubrax.</p>
+          <p class="faq-answer">Sim. Trabalhamos só com marcas que confiamos, como Wega, Tecfil, Nakata, Mann Filter, Continental, Dayco, Shell, Lubrax, Axios, Vox, Selenia, Maxon e Motul.</p>
         </details>
         <details class="faq-item">
           <summary>Preciso agendar a troca de óleo?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
@@ -1738,7 +1760,7 @@
         revObs.observe(el);
       });
     });
-    document.querySelectorAll('.sobre-img-wrap, .sobre-text').forEach(el => revObs.observe(el));
+    document.querySelectorAll('.sobre-img-wrap, .sobre-inset, .sobre-text').forEach(el => revObs.observe(el));
 
     const titleObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('line-active'); titleObs.unobserve(e.target); } });
